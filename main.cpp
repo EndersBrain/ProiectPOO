@@ -54,9 +54,9 @@ public:
         this->damage = damage1;
         this->armour = armour1;
     }
-    Soldat(int damage, int armour) {
-        this->armour = armour;
-        this->damage = damage;
+    Soldat(int damage1, int armour1) {
+        this->armour = armour1;
+        this->damage = damage1;
     }
     //Soldat(int armour) { this->armour = armour; }
     Soldat() {}
@@ -64,7 +64,7 @@ public:
     int getDEF() const { return armour; }
     int getDMG() const { return damage; }
     int getHP() const { return hp; }
-    void setHP(int hp) { this->hp = hp; }
+    void setHP(int hp1) { this->hp = hp1; }
     void setDEF(int armour) { this->armour = armour; }
     void setDMG(int damage) { this->damage = damage; }
 
