@@ -261,6 +261,7 @@ public:
                         stringstream P;
                         P << aux[aux.size() - 2];
                         int y;
+                        P>>y;
                         y++;
                         aux.erase(aux.size() - 1);
                         aux.erase(aux.size() - 1);
