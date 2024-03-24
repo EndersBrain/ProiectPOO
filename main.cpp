@@ -158,7 +158,7 @@ public:
         }
         return input;
     }
-    friend std::ostream& operator<<(std::ostream& output, General& const x) {
+    friend std::ostream& operator<<(std::ostream& output, const General&  x) {
         output << "\n\n-------------\n\n"
             << "Nume party: " << x.nume_party << endl;
         output << "Stats-uri Generalului: " << endl;
@@ -187,7 +187,7 @@ public:
         aux.setDEF(this->party_stats.getDEF() * party_size);
         return aux;
     }
-    General(string const nume_party, Soldat id, Soldat party_stats, int party_size) {
+    General(const string & nume_party, Soldat id, Soldat party_stats, int party_size) {
         this->nume_party = nume_party;
         this->id = id;
         this->party_stats = party_stats;
