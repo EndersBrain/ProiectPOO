@@ -242,13 +242,14 @@ public:
     string getName() const { return this->squad_Name; }
     General getMember(int i) const { return this->squad_member[i]; }
     void add(General member) { this->squad_member.push_back(member); }
-    void add(General member, string& X) { this->squad_member.push_back(member); this->squad_member[this->squad_member.size() - 1].setName(X); }
+    void add(General member,const string& X) { this->squad_member.push_back(member); this->squad_member[this->squad_member.size() - 1].setName(X); }
     void Absorb(Comandant const& x)
     {
-        bool contor;
+        
         string aux;
         for (int i = 0; i < x.squad_size; i++)
         {
+            bool contor;
             contor = 0;
             for (int j = 0; j < this->squad_size; j++)
             {
@@ -274,11 +275,12 @@ public:
                         aux = aux + "(2)"; 
 
                 }
-                if (!contor)
-                {
-                    aux = x.getMember(i).getNume(); 
-                }
             }
+            if (!contor)
+            {
+                aux = x.getMember(i).getNume(); 
+            }
+            
             this->squad_size++;
             this->add(x.squad_member[i], aux);
             aux.clear();
