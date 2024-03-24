@@ -49,10 +49,10 @@ private:
 public:
     ~Soldat() = default;
     Soldat(const Soldat&) = default;
-    Soldat(int hp, int damage, int armour) {
-        this->hp = hp;
-        this->damage = damage;
-        this->armour = armour;
+    Soldat(int hp1, int damage1, int armour1) {
+        this->hp = hp1;
+        this->damage = damage1;
+        this->armour = armour1;
     }
     Soldat(int damage, int armour) {
         this->armour = armour;
