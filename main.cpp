@@ -251,30 +251,29 @@ public:
             for (int j = 0; j < this->squad_size; j++)
             {
                 if (this->squad_member[j].getNume().compare(0, x.getMember(i).getNume().size(), x.getMember(i).getNume(), 0, x.getMember(i).getNume().size()) == 0)
-                {//compar daca numele din x este inclus in this->, ceea ce merge
+                {
                     contor++;
 
-                    aux = this->squad_member[j].getNume();//iau numele elementului din this pentur ca aici sunt cele modificate
+                    aux = this->squad_member[j].getNume();
 
                     if (aux[aux.size() - 1] == ')')
                     {
                         stringstream P;
                         P << aux[aux.size() - 2];
-                        int x;//iau valoare dintre paranteze
-                        P >> x;
-                        x++;
+                        int y;
+                        y++;
                         aux.erase(aux.size() - 1);
-                        aux.erase(aux.size() - 1);//scot valoarea si )
-                        aux += (char(x + 48)); // adaug valoarea urmatoare si inchid paranteza
+                        aux.erase(aux.size() - 1);
+                        aux += (char(y + 48)); 
                         aux += ')';
                     }
                     else
-                        aux = aux + "(2)"; // prima dublura
+                        aux = aux + "(2)"; 
 
                 }
                 if (contor == 0)
                 {
-                    aux = x.getMember(i).getNume(); // daca nu a trecut prin if-ul de mai sus il pun direct
+                    aux = x.getMember(i).getNume(); 
                 }
             }
             this->squad_size++;
