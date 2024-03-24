@@ -65,8 +65,8 @@ public:
     int getDMG() const { return damage; }
     int getHP() const { return hp; }
     void setHP(int hp1) { this->hp = hp1; }
-    void setDEF(int armour) { this->armour = armour; }
-    void setDMG(int damage) { this->damage = damage; }
+    void setDEF(int armour1) { this->armour = armour1; }
+    void setDMG(int damage1) { this->damage = damage1; }
 
     // void Copiere_Soldat(Soldat& soldat1, Soldat const& soldat2) {
     //     soldat1.hp = soldat2.hp;
