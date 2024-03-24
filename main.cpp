@@ -57,7 +57,7 @@ public:
         this->armour = armour;
         this->damage = damage;
     }
-    Soldat(int armour) { this->armour = armour; }
+    //Soldat(int armour) { this->armour = armour; }
     Soldat() {}
 
     int getDEF() const { return armour; }
@@ -185,7 +185,7 @@ public:
         aux.setDEF(this->party_stats.getDEF() * party_size);
         return aux;
     }
-    General(string nume_party, Soldat id, Soldat party_stats, int party_size) {
+    General(string const nume_party, Soldat id, Soldat party_stats, int party_size) {
         this->nume_party = nume_party;
         this->id = id;
         this->party_stats = party_stats;
@@ -243,7 +243,7 @@ public:
     void add(General member, string X) { this->squad_member.push_back(member); this->squad_member[this->squad_member.size() - 1].setName(X); }
     void Absorb(Comandant const& x)
     {
-        int contor;
+        bool contor;
         string aux;
         for (int i = 0; i < x.squad_size; i++)
         {
@@ -252,7 +252,7 @@ public:
             {
                 if (this->squad_member[j].getNume().compare(0, x.getMember(i).getNume().size(), x.getMember(i).getNume(), 0, x.getMember(i).getNume().size()) == 0)
                 {
-                    contor++;
+                    contor=true;
 
                     aux = this->squad_member[j].getNume();
 
@@ -272,7 +272,7 @@ public:
                         aux = aux + "(2)"; 
 
                 }
-                if (contor == 0)
+                if (!contor)
                 {
                     aux = x.getMember(i).getNume(); 
                 }
