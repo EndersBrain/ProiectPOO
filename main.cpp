@@ -48,6 +48,7 @@ private:
 
 public:
     ~Soldat() = default;
+    Soldat(const Soldat&) = default;
     Soldat(int hp, int damage, int armour) {
         this->hp = hp;
         this->damage = damage;
@@ -67,17 +68,18 @@ public:
     void setDEF(int armour) { this->armour = armour; }
     void setDMG(int damage) { this->damage = damage; }
 
-    void Copiere_Soldat(Soldat& soldat1, Soldat const& soldat2) {
-        soldat1.hp = soldat2.hp;
-        soldat1.damage = soldat2.damage;
-        soldat1.armour = soldat2.armour;
-    }
+    // void Copiere_Soldat(Soldat& soldat1, Soldat const& soldat2) {
+    //     soldat1.hp = soldat2.hp;
+    //     soldat1.damage = soldat2.damage;
+    //     soldat1.armour = soldat2.armour;
+    // }
 
-    void Afisare_soldat() {
-        cout << "HP: " << this->hp << "; DMG: " << this->damage
-            << "; DEF: " << this->armour << endl;
-    }
-    Soldat operator=(Soldat const& x) {
+    // void Afisare_soldat() {
+    //     cout << "HP: " << this->hp << "; DMG: " << this->damage
+    //         << "; DEF: " << this->armour << endl;
+    // }
+
+    Soldat operator=(const Soldat & x) {
 
         this->hp = x.hp;
         this->damage = x.damage;
@@ -96,7 +98,7 @@ public:
         return output;
     }
 
-    Soldat operator+(Soldat const& x) {
+    Soldat operator+(const Soldat & x) {
         Soldat rez;
         rez.hp = x.hp + this->hp;
         rez.damage = x.damage + this->damage;
@@ -156,7 +158,7 @@ public:
         }
         return input;
     }
-    friend std::ostream& operator<<(std::ostream& output, General& x) {
+    friend std::ostream& operator<<(std::ostream& output, General& const x) {
         output << "\n\n-------------\n\n"
             << "Nume party: " << x.nume_party << endl;
         output << "Stats-uri Generalului: " << endl;
@@ -164,10 +166,10 @@ public:
         output << "\nParty-ul " << x.nume_party << " are " << x.party_size << " soldati de forma " << x.party_stats << '\n';
         return output;
     }
-    int getPS() { return party_size; }
-    string getNume() { return nume_party; }
-    Soldat getSoldat() { return party_stats; }
-    void setSoldat(Soldat soldat, int i) { party_stats = soldat; }
+    
+    string getNume() const { return nume_party; }
+    //Soldat getSoldat() { return party_stats; }
+    //void setSoldat(Soldat soldat, int i) { party_stats = soldat; }
     Soldat getID() const { return id; }
     void setName(const string& nume)
     {
@@ -226,7 +228,7 @@ public:
         }
         return input;
     }
-    friend std::ostream& operator<<(std::ostream& output, Comandant& x)
+    friend std::ostream& operator<<(std::ostream& output, Comandant& cosnt x)
     {
         output << "Armata " << x.squad_Name << " are " << x.squad_size << " party-uri ";
         for (int i = 0; i < x.squad_size; i++)
@@ -240,7 +242,7 @@ public:
     string getName() const { return this->squad_Name; }
     General getMember(int i) const { return this->squad_member[i]; }
     void add(General member) { this->squad_member.push_back(member); }
-    void add(General member, string X) { this->squad_member.push_back(member); this->squad_member[this->squad_member.size() - 1].setName(X); }
+    void add(General member, string& X) { this->squad_member.push_back(member); this->squad_member[this->squad_member.size() - 1].setName(X); }
     void Absorb(Comandant const& x)
     {
         bool contor;
@@ -302,19 +304,19 @@ bool operator>(Comandant const& x, Comandant const& y) {
 }
 
 // citirea si afisarea a N armate.
-void massive_input(int n)
-{
-    vector <Comandant> v;
-    Comandant aux;
-    for (int i = 0; i < n; i++)
-    {
-        cout << '\n';
-        cin >> aux;
-        v.push_back(aux);
-    }
-    for (int i = 0; i < n; i++)
-        cout << v[i] << '\n';
-}
+// void massive_input(int n)
+// {
+//     vector <Comandant> v;
+//     Comandant aux;
+//     for (int i = 0; i < n; i++)
+//     {
+//         cout << '\n';
+//         cin >> aux;
+//         v.push_back(aux);
+//     }
+//     for (int i = 0; i < n; i++)
+//         cout << v[i] << '\n';
+// }
 
 
 
