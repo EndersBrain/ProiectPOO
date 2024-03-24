@@ -228,7 +228,7 @@ public:
         }
         return input;
     }
-    friend std::ostream& operator<<(std::ostream& output, Comandant& cosnt x)
+    friend std::ostream& operator<<(std::ostream& output,const Comandant&  x)
     {
         output << "Armata " << x.squad_Name << " are " << x.squad_size << " party-uri ";
         for (int i = 0; i < x.squad_size; i++)
